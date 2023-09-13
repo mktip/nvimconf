@@ -10,8 +10,6 @@ return {
         section_separators = { left = "", right = "" },
       }
 
-
-
     }
   end
 }
