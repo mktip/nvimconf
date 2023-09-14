@@ -12,13 +12,29 @@ function create_note()
   require("zk").new({ title = new_name })
 end
 
+_G.laststatus = 0
+
+-- toggle statusline
+function toggle_status()
+  if _G.laststatus == 0 then
+    _G.laststatus = 2
+  else
+    _G.laststatus = 0
+  end
+  vim.opt.laststatus = _G.laststatus
+end
+
 local config = function()
   local wk = require("which-key")
 
   wk.setup({ plugins = { spelling = { enabled = true } } })
 
   wk.register({
-    u = { name = "+util", n = { "<cmd>nohlsearch<CR>", "Unhighlight Search" } },
+    u = {
+      name = "+util",
+      n = { "<cmd>nohlsearch<CR>", "Unhighlight Search" },
+      z = { toggle_status, "Toggle Status Bar" }
+    },
     e = {
       name = "+edit",
       r = {

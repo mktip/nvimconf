@@ -19,7 +19,7 @@ M.config = function()
   vim.opt.winwidth = 120
 
   vim.opt.timeoutlen = 500
-  vim.opt.laststatus = 3
+  vim.opt.laststatus = 0
   vim.opt.showtabline = 1
   vim.opt.cursorline = false
   vim.opt.winheight = 5
